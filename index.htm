@@ -5,7 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="styles/style.css"/>
 	<style>
-		h3 {margin-top: 20px;}
+		h2 {margin-top: 40px;}
+		h3 {margin-top: 40px;}
 		.sandbox {border: 1px solid #000;}
 		.control_panel {
 			background-color: #000;
@@ -44,6 +45,74 @@
 		</svg>
 
 		<h2>Примеры</h2>
+		<h3>Шестерёнка<h3>
+			<svg width="180" height="150">
+                <g fill="#FFF" stroke="#000" transform="translate(100,80)">
+                	<circle cx="0" cy="0" r="20"/>
+                    <path transform="rotate(  0)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate( 40)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate( 80)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(120)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(160)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(200)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(240)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(280)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                    <path transform="rotate(320)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+                </g>
+            </svg>
+		
+		<h3>Панель управления плеером</h3>
+		<div class="control_panel">
+			<div id="pause" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<polygon points="4,4 12,4 12,26 4,26"/>
+						<polygon points="18,4 26,4 26,26 18,26"/>
+						<circle cx="8" cy="4" r="4"/>
+						<circle cx="22" cy="4" r="4"/>
+						<circle cx="8" cy="26" r="4"/>
+						<circle cx="22" cy="26" r="4"/>
+					</g>
+				</svg>
+			</div>
+
+			<div id="play" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<polygon points="0,4 5,0 27,11 27,19 5,30 0,26"/>
+						<circle cx="4" cy="4" r="4"/>
+						<circle cx="26" cy="15" r="4"/>
+						<circle cx="4" cy="26" r="4"/>
+					</g>
+				</svg>
+			</div>
+
+			<div id="vol_down" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<path d="M11,4 A 11,11 0 1,0 11,26"/>
+						<polygon points="10.7,4 26,4 30,8 30,22 26,26 10.7,26"/>
+						<circle cx="26" cy="8" r="4"/>
+						<circle cx="26" cy="22" r="4"/>
+					</g>
+					<path d="M16,11 A 5,5 0 0,1 16,19" style="fill:white; stroke: black; stroke-width: 1"/>
+				</svg>
+			</div>
+
+			<div id="vol_up" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<path d="M19,4 A 11,11 0 1,1 19,26"/>
+						<polygon points="19.3,4 4,4 0,8 0,22 4,26 19.3,26"/>
+						<circle cx="4" cy="8" r="4"/>
+						<circle cx="4" cy="22" r="4"/>
+					</g>
+					<path d="M15,7 A 9,9 0 0,1 15,23" style="fill:white; stroke: black; stroke-width: 1"/>
+					<path d="M14,9 A 7,7 0 0,1 14,21" style="fill:white; stroke: black; stroke-width: 1"/>
+					<path d="M13,11 A 5,5 0 0,1 13,19" style="fill:white; stroke: black; stroke-width: 1"/>
+				</svg>
+			</div>
+		</div>
 		<h3>Меню</h3>
 		<svg width="815" height="45">
 			<style type="text/css" media="screen">
@@ -96,60 +165,7 @@
 			</g>
 
 		</svg>
-		<h3>Панель управления плеером</h3>
-		<div class="control_panel">
-			<div id="pause" class="xbmc_button" width="30" height="30">
-				<svg>
-					<g style="fill: #fff; stroke: black; stroke-width: 0">
-						<polygon points="4,4 12,4 12,26 4,26"/>
-						<polygon points="18,4 26,4 26,26 18,26"/>
-						<circle cx="8" cy="4" r="4"/>
-						<circle cx="22" cy="4" r="4"/>
-						<circle cx="8" cy="26" r="4"/>
-						<circle cx="22" cy="26" r="4"/>
-					</g>
-				</svg>
-			</div>
-
-			<div id="play" class="xbmc_button" width="30" height="30">
-				<svg>
-					<g style="fill: #fff; stroke: black; stroke-width: 0">
-						<polygon points="0,4 5,0 27,11 27,19 5,30 0,26"/>
-						<circle cx="4" cy="4" r="4"/>
-						<circle cx="26" cy="15" r="4"/>
-						<circle cx="4" cy="26" r="4"/>
-					</g>
-				</svg>
-			</div>
-
-			<div id="vol_down" class="xbmc_button" width="30" height="30">
-				<svg>
-					<g style="fill: #fff; stroke: black; stroke-width: 0">
-						<path d="M11,4 A 11,11 0 1,0 11,26"/>
-						<polygon points="10.7,4 26,4 30,8 30,22 26,26 10.7,26"/>
-						<circle cx="26" cy="8" r="4"/>
-						<circle cx="26" cy="22" r="4"/>
-					</g>
-					<path d="M16,11 A 5,5 0 0,1 16,19" style="fill:white; stroke: black; stroke-width: 1"/>
-				</svg>
-			</div>
-
-			<div id="vol_up" class="xbmc_button" width="30" height="30">
-				<svg>
-					<g style="fill: #fff; stroke: black; stroke-width: 0">
-						<path d="M19,4 A 11,11 0 1,1 19,26"/>
-						<polygon points="19.3,4 4,4 0,8 0,22 4,26 19.3,26"/>
-						<circle cx="4" cy="8" r="4"/>
-						<circle cx="4" cy="22" r="4"/>
-					</g>
-					<path d="M15,7 A 9,9 0 0,1 15,23" style="fill:white; stroke: black; stroke-width: 1"/>
-					<path d="M14,9 A 7,7 0 0,1 14,21" style="fill:white; stroke: black; stroke-width: 1"/>
-					<path d="M13,11 A 5,5 0 0,1 13,19" style="fill:white; stroke: black; stroke-width: 1"/>
-				</svg>
-			</div>
-			</div>
-		<h3>Шестерёнка<h3>
-
+		<!-- end of примеры -->
 	</div>
 </body>
 
