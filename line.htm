@@ -12,15 +12,20 @@
 		});
 
 
+
+
 		point=0;
 		d=[[20,30],[100,300],[400,20]];
+		d.toPath=function(min) { return 'M'+this.join((min==true?'':'  ')+'L'+(min==true?'':' ')); };
+
+		$(".path").attr("d",d.toPath(false));
+
 		$(".sandbox2").mousedown(function(e) {
 			lengths=[];
 			//Заполняем массив манхеттенской мерой расстояния от мыши до всех точек
 			$("circle.dragpoint").each(function(){ lengths.push(Math.abs($(this).attr("cx")-e.clientX)+Math.abs($(this).attr("cy")-e.clientY)); });
 			//Сортируем
-			point=1;
-			for(i in lengths) if(lengths[i]<lengths[point]) point=i;
+			point=1; for(i in lengths) if(lengths[i]<lengths[point]) point=i;
 			//Отказываемся, если мышь далеко от всех точек
 			if(lengths[point]>20) point=0; else point++;
 		}).mousemove(function(e) { if(point!="0") {
@@ -28,7 +33,7 @@
 			y=e.clientY-7;
 			d[point-1]=[x,y];
 			$(".dragpoint"+point).attr("cx",x).attr("cy",y);
-			$(".path").attr("d","M"+d[0]+"L"+d[1]+"L"+d[2]);
+			$(".path").attr("d",d.toPath(false));
 		}}).mouseup(function() { point=0; });
 
 		$(".dragpoint").mouseenter(function() {
@@ -51,21 +56,21 @@
 		border: 1px solid #000;
 	}
 
-	.line { stroke: #000; }
+	svg path, svg circle { stroke: #000; }
 
 	.dragpoint { stroke: #000; fill:#fff; }
 </style>
 
 <svg class="sandbox2">
-	<path class="line path" d="M20,30L100,300L400,20" fill="#fff"/>
-	<circle class="line dragpoint dragpoint1" cx="20" cy="30" r="7" opacity="0.0"/>
-	<circle class="line dragpoint dragpoint2" cx="100" cy="300" r="7" opacity="0.0"/>
-	<circle class="line dragpoint dragpoint3" cx="400" cy="20" r="7" opacity="0.0"/>
+	<path class="path" fill="#fff"/>
+	<circle class="dragpoint" cx="20" cy="30" r="7" opacity="0.0"/>
+	<circle class="dragpoint" cx="100" cy="300" r="7" opacity="0.0"/>
+	<circle class="dragpoint" cx="400" cy="20" r="7" opacity="0.0"/>
 </svg>
 
 <svg class="sandbox1">
-	<path class="line path1" d="M0,0L250,250L0,500Z" fill="#ff0"/>
-	<path class="line path2" d="M0,500L250,250L500,500Z" fill="#f00"/>
-	<path class="line path3" d="M500,500L250,250L500,0Z" fill="#0f0"/>
-	<path class="line path4" d="M500,0L250,250L0,0Z" fill="#00f"/>
+	<path class="path1" d="M0,0L250,250L0,500Z" fill="#ff0"/>
+	<path class="path2" d="M0,500L250,250L500,500Z" fill="#f00"/>
+	<path class="path3" d="M500,500L250,250L500,0Z" fill="#0f0"/>
+	<path class="path4" d="M500,0L250,250L0,0Z" fill="#00f"/>
 </svg>
