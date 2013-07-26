@@ -15,15 +15,89 @@
 			padding: 5px;
 		}
 		.xbmc_button {
-			width:30px;
-			height:30px;
+			width: 30px;
+			height: 30px;
 			display: inline-block;
 		}
+		.wrap {
+			width: 1020px;
+			border: 1px solid #ddd;
+			margin: 0 auto;
+		}
 	</style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		jQuery(window).load(function () {
+			$(".menu_intact").click(function () {
+				document.location.href="line.htm";
+			});
+			$(".menu_elements").click(function () {
+				document.location.href="index.htm";
+			});
+		});
+	</script>
 </head>
 
 <body>
 	<div class="wrap">
+		<!-- Меню -->
+		<svg width="1020" height="45">
+			<style type="text/css" media="screen">
+				<![CDATA[
+				.unsel{
+					fill: #666;
+				}
+
+				.sel{
+					fill: #e33;
+				}
+
+				.back{
+					fill: #ccc;
+				}
+
+				.bott{
+					fill: #bbb;
+				}
+
+				.font_s{
+					fill: #ddd;
+					font-family: sans-serif;
+					font-weight: 600;
+				}
+				]]>
+			</style>
+
+			<path class="back" d="M0,0 L1020,0 L1020,40 L0,40 Z"/>
+			<path class="bott" d="M0,40 L1020,40 L1020,45 L0,45 Z"/>
+
+			<g transform="translate(0,0)" class="menu_elements">
+				<path class="sel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
+				<text x="65" y="25" class="font_s">Элементы</text>
+			</g>
+
+			<g transform="translate(205,0)" class="menu_examples">
+				<path class="unsel" id="2" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Примеры</text>
+			</g>
+
+			<g transform="translate(410,0)" class="menu_intact">
+				<path class="unsel" id="3" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="35" y="25" class="font_s">Интерактивность</text>
+			</g>
+
+			<g transform="translate(615,0)" class="menu_designs">
+				<path class="unsel" id="4" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Дизайны</text>
+			</g>
+
+			<g transform="translate(820,0)" class="menu_redactor">
+				<path class="unsel" id="5" d="M0,0L200,0L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Редактор</text>
+			</g>
+
+		</svg>
+		<!-- /Меню -->
 		<h2>Общие свойства</h2>
 		Все элементы SVG имеют свойства fill, stroke, stroke-width, font и так далее. Но их лучше задавать в виде стилей. Все линии необходимо "обвести" после рисования свойством stroke.
 		<h2>Линейные элементы</h2>
