@@ -1,20 +1,9 @@
-<html>
-
 <head>
 	<title>Учебник SVG</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="styles/style.css"/>
-	<style>
-		h2 {margin-top: 20px;}
-		h3 {margin-top: 20px;}
-		.sandbox {border: 1px solid #000;}
-		.wrap {
-			width: 1020px;
-			border: 1px solid #ddd;
-			margin: 0 auto;
-		}
-	</style>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
 	<script>
 		jQuery(window).load(function () {
 			$(".menu_intact").click(function () {
@@ -31,7 +20,15 @@
 			});
 		});
 	</script>
-</head>
+
+	<style>
+		.wrap {
+			width: 1020px;
+			border: 1px solid #ddd;
+			margin: 0 auto;
+		}
+	</style>
+</head>	
 
 <body>
 	<div class="wrap">
@@ -67,7 +64,7 @@
 			<path class="bott" d="M0,40 L1020,40 L1020,45 L0,45 Z"/>
 
 			<g transform="translate(0,0)" class="menu_elements">
-				<path class="sel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
+				<path class="unsel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
 				<text x="65" y="25" class="font_s">Элементы</text>
 			</g>
 
@@ -82,7 +79,7 @@
 			</g>
 
 			<g transform="translate(615,0)" class="menu_designs">
-				<path class="unsel" id="4" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<path class="sel" id="4" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
 				<text x="65" y="25" class="font_s">Дизайны</text>
 			</g>
 
@@ -93,27 +90,18 @@
 
 		</svg>
 		<!-- /Меню -->
-		<h2>Общие свойства</h2>
-		Все элементы SVG имеют свойства fill, stroke, stroke-width, font и так далее. Но их лучше задавать в виде стилей. Все линии необходимо "обвести" после рисования свойством stroke.
-		<h2>Линейные элементы</h2>
-		<h3>Элемент line</h3>
-		Самый простой элемент в SVG. Он имеет такой синтаксис:
-		<p><code>
-			&lt;line x1=&quot;50&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;30&quot;/&gt;
-		</code></p>
-		<svg width="250" height="150" class="sandbox">
-			<line x1="50" y1="100" x2="200" y2="30" stroke="#000"/>
-		</svg>
-		<h3>Элемент rect</h3>
-		Предназначен для рисования прямоугольников.
-		<p><code>
-			&lt;rect x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
-		</code></p>
-		<svg width="250" height="150" class="sandbox">
-			<rect x="50" y="30" width="150" height="70" stroke="#000" fill="#fff"/>
-		</svg>
+		
+		<h3>Поиск яндекса</h3>
 
+		<svg width="700" height="70">
+
+			<linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
+				<stop style="stop-color:#FFF096" offset="0%"/>
+				<stop style="stop-color:#FAD954" offset="50%"/>
+				<stop style="stop-color:#F4BE03" offset="100%"/>
+			</linearGradient>
+
+			<path d="M0,0L675,0L690,30L675,60L0,60Z" style="fill:url(#lineGradient);"/>
+		</svg>
 	</div>
 </body>
-
-</html>

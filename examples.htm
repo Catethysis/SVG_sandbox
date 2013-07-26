@@ -1,0 +1,231 @@
+<head>
+	<title>Учебник SVG</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="styles/style.css"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+	<script>
+		jQuery(window).load(function () {
+			$(".menu_intact").click(function () {
+				document.location.href="line.htm";
+			});
+			$(".menu_examples").click(function () {
+				document.location.href="examples.htm";
+			});
+			$(".menu_elements").click(function () {
+				document.location.href="index.htm";
+			});
+			$(".menu_designs").click(function () {
+				document.location.href="designs.htm";
+			});
+		});
+	</script>
+
+	<style>
+		.wrap {
+			width: 1020px;
+			border: 1px solid #ddd;
+			margin: 0 auto;
+		}
+		.control_panel {
+			background-color: #000;
+			width: 135px;
+			height: 30px;
+			padding: 5px;
+		}
+		.xbmc_button {
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+		}
+
+	</style>
+</head>	
+
+<body>
+	<div class="wrap">
+		<!-- Меню -->
+		<svg width="1020" height="45">
+			<style type="text/css" media="screen">
+				<![CDATA[
+				.unsel{
+					fill: #666;
+				}
+
+				.sel{
+					fill: #e33;
+				}
+
+				.back{
+					fill: #ccc;
+				}
+
+				.bott{
+					fill: #bbb;
+				}
+
+				.font_s{
+					fill: #ddd;
+					font-family: sans-serif;
+					font-weight: 600;
+				}
+				]]>
+			</style>
+
+			<path class="back" d="M0,0 L1020,0 L1020,40 L0,40 Z"/>
+			<path class="bott" d="M0,40 L1020,40 L1020,45 L0,45 Z"/>
+
+			<g transform="translate(0,0)" class="menu_elements">
+				<path class="unsel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
+				<text x="65" y="25" class="font_s">Элементы</text>
+			</g>
+
+			<g transform="translate(205,0)" class="menu_examples">
+				<path class="sel" id="2" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Примеры</text>
+			</g>
+
+			<g transform="translate(410,0)" class="menu_intact">
+				<path class="unsel" id="3" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="35" y="25" class="font_s">Интерактивность</text>
+			</g>
+
+			<g transform="translate(615,0)" class="menu_designs">
+				<path class="unsel" id="4" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Дизайны</text>
+			</g>
+
+			<g transform="translate(820,0)" class="menu_redactor">
+				<path class="unsel" id="5" d="M0,0L200,0L200,40L0,40L10,20Z"/>
+				<text x="65" y="25" class="font_s">Редактор</text>
+			</g>
+
+		</svg>
+		<!-- /Меню -->
+
+		
+		<h2>Примеры</h2>
+		<h3>Шестерёнка</h3>
+			<svg width="180" height="150">
+				<g fill="#FFF" stroke="#000" transform="translate(100,80)">
+					<circle cx="0" cy="0" r="20"/>
+					<path transform="rotate(  0)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate( 40)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate( 80)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(120)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(160)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(200)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(240)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(280)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+					<path transform="rotate(320)" d="M-18,-50 A 20,20 0 0 0 -3,-70 A 3,3 0 0 1 3,-70 A 20,20 0 0 0 18,-50"/>
+				</g>
+			</svg>
+		<br>
+		Обратите внимание - создаём один элемент шестерёнки с точкой (0,0) в центре будущей шестерёнки. Потом просто копируем его, поворачивая каждый раз на 40 градусов. Благодаря настройке положения центра, все эти копии вращаются вокруг центра шестерёнки.
+		<h3>Панель управления плеером</h3>
+		<div class="control_panel">
+			<div id="pause" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<polygon points="4,4 12,4 12,26 4,26"/>
+						<polygon points="18,4 26,4 26,26 18,26"/>
+						<circle cx="8" cy="4" r="4"/>
+						<circle cx="22" cy="4" r="4"/>
+						<circle cx="8" cy="26" r="4"/>
+						<circle cx="22" cy="26" r="4"/>
+					</g>
+				</svg>
+			</div>
+
+			<div id="play" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<polygon points="0,4 5,0 27,11 27,19 5,30 0,26"/>
+						<circle cx="4" cy="4" r="4"/>
+						<circle cx="26" cy="15" r="4"/>
+						<circle cx="4" cy="26" r="4"/>
+					</g>
+				</svg>
+			</div>
+
+			<div id="vol_down" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<path d="M11,4 A 11,11 0 1,0 11,26"/>
+						<polygon points="10.7,4 26,4 30,8 30,22 26,26 10.7,26"/>
+						<circle cx="26" cy="8" r="4"/>
+						<circle cx="26" cy="22" r="4"/>
+					</g>
+					<path d="M16,11 A 5,5 0 0,1 16,19" style="fill:white; stroke: black; stroke-width: 1"/>
+				</svg>
+			</div>
+
+			<div id="vol_up" class="xbmc_button" width="30" height="30">
+				<svg>
+					<g style="fill: #fff; stroke: black; stroke-width: 0">
+						<path d="M19,4 A 11,11 0 1,1 19,26"/>
+						<polygon points="19.3,4 4,4 0,8 0,22 4,26 19.3,26"/>
+						<circle cx="4" cy="8" r="4"/>
+						<circle cx="4" cy="22" r="4"/>
+					</g>
+					<path d="M15,7 A 9,9 0 0,1 15,23" style="fill:white; stroke: black; stroke-width: 1"/>
+					<path d="M14,9 A 7,7 0 0,1 14,21" style="fill:white; stroke: black; stroke-width: 1"/>
+					<path d="M13,11 A 5,5 0 0,1 13,19" style="fill:white; stroke: black; stroke-width: 1"/>
+				</svg>
+			</div>
+		</div>
+		<h3>Меню</h3>
+		<svg width="815" height="45">
+			<style type="text/css" media="screen">
+				<![CDATA[
+				.unsel{
+					fill: #666;
+				}
+
+				.sel{
+					fill: #e33;
+				}
+
+				.back{
+					fill: #ccc;
+				}
+
+				.bott{
+					fill: #bbb;
+				}
+
+				.font_s{
+					fill: #ddd;
+					font-family: sans-serif;
+					font-weight: 600;
+				}
+				]]>
+			</style>
+
+			<path class="back" d="M0,0 L815,0 L815,40 L0,40 Z"/>
+			<path class="bott" d="M0,40 L815,40 L815,45 L0,45 Z"/>
+
+			<g transform="translate(0,0)">
+				<path class="unsel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
+				<text x="50" y="25" class="font_s">Состав заказа</text>
+			</g>
+
+			<g transform="translate(205,0)">
+				<path class="unsel" id="2" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="15" y="25" class="font_s">Оформление доставки</text>
+			</g>
+
+			<g transform="translate(410,0)">
+				<path class="sel" id="3" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
+				<text x="15" y="25" class="font_s">Подтверждение заказа</text>
+			</g>
+
+			<g transform="translate(615,0)">
+				<path class="unsel" id="4" d="M0,0L200,0L200,40L0,40L10,20Z"/>
+				<text x="50" y="25" class="font_s">Заказ создан</text>
+			</g>
+
+		</svg>
+		<!-- end of примеры -->
+	</div>
+</body>
