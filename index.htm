@@ -3,11 +3,19 @@
 <head>
 	<title>Учебник SVG</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="Highlight/styles/default.css">
+	<script src="Highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
 	<link rel="stylesheet" href="styles/style.css"/>
 	<style>
 		h2 {margin-top: 20px;}
+
 		h3 {margin-top: 20px;}
+
 		.sandbox {border: 1px solid #000;}
+
 		.wrap {
 			width: 1020px;
 			border: 1px solid #ddd;
@@ -29,6 +37,9 @@
 			$(".menu_designs").click(function () {
 				document.location.href="designs.htm";
 			});
+			$(".menu_tricks").click(function () {
+				document.location.href="tricks.htm";
+			});
 		});
 	</script>
 </head>
@@ -44,7 +55,7 @@
 				}
 
 				.sel{
-					fill: #e33;
+					fill: #d40;
 				}
 
 				.back{
@@ -67,52 +78,82 @@
 			<path class="bott" d="M0,40 L1020,40 L1020,45 L0,45 Z"/>
 
 			<g transform="translate(0,0)" class="menu_elements">
-				<path class="sel" id="1" d="M0,0L200,0L210,20L200,40L0,40Z"/>
-				<text x="65" y="25" class="font_s">Элементы</text>
+				<!-- <path class="sel" id="1" d="M0,0L175,0L185,20L175,40L0,40Z"/>-->
+				<path class="sel" id="1" d="M0,0L185,0L165,40L0,40Z"/>
+				<text x="45" y="25" class="font_s">Элементы</text>
 			</g>
 
-			<g transform="translate(205,0)" class="menu_examples">
-				<path class="unsel" id="2" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
-				<text x="65" y="25" class="font_s">Примеры</text>
+			<g transform="translate(170,0)" class="menu_examples">
+				<path class="unsel" id="2" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Примеры</text>
 			</g>
 
-			<g transform="translate(410,0)" class="menu_intact">
-				<path class="unsel" id="3" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
-				<text x="35" y="25" class="font_s">Интерактивность</text>
+			<g transform="translate(340,0)" class="menu_intact">
+				<path class="unsel" id="3" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="25" y="25" class="font_s">Интерактивность</text>
 			</g>
 
-			<g transform="translate(615,0)" class="menu_designs">
-				<path class="unsel" id="4" d="M0,0L200,0L210,20L200,40L0,40L10,20Z"/>
-				<text x="65" y="25" class="font_s">Дизайны</text>
+			<g transform="translate(510,0)" class="menu_designs">
+				<path class="unsel" id="4" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Дизайны</text>
 			</g>
 
-			<g transform="translate(820,0)" class="menu_redactor">
-				<path class="unsel" id="5" d="M0,0L200,0L200,40L0,40L10,20Z"/>
-				<text x="65" y="25" class="font_s">Редактор</text>
+			<g transform="translate(680,0)" class="menu_redactor">
+				<path class="unsel" id="5" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Редактор</text>
+			</g>
+
+			<g transform="translate(850,0)" class="menu_tricks">
+				<path class="unsel" id="6" d="M20,0L170,0L170,40L0,40Z"/>
+				<text x="65" y="25" class="font_s">Трюки</text>
 			</g>
 
 		</svg>
 		<!-- /Меню -->
+		<br><br>
+		Для начала, <a href="http://caniuse.com/#feat=svg">поддержка SVG в различных браузерах</a>
 		<h2>Общие свойства</h2>
 		Все элементы SVG имеют свойства fill, stroke, stroke-width, font и так далее. Но их лучше задавать в виде стилей. Все линии необходимо "обвести" после рисования свойством stroke.
 		<h2>Линейные элементы</h2>
 		<h3>Элемент line</h3>
 		Самый простой элемент в SVG. Он имеет такой синтаксис:
-		<p><code>
+		<pre><code>
 			&lt;line x1=&quot;50&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;30&quot;/&gt;
-		</code></p>
+		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<line x1="50" y1="100" x2="200" y2="30" stroke="#000"/>
 		</svg>
 		<h3>Элемент rect</h3>
 		Предназначен для рисования прямоугольников.
-		<p><code>
+		<pre><code>
 			&lt;rect x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
-		</code></p>
+		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<rect x="50" y="30" width="150" height="70" stroke="#000" fill="#fff"/>
 		</svg>
 
+		<h2>Представление</h2>
+		<h3>Стили</h3>
+		Атрибуты: fill (цвет заливки), stroke (цвет границы), stroke-width (ширина границы).
+		Атрибутам fill и stroke можно задавать градиент, например:
+		<pre><code>
+		&lt;linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1"&gt;
+			&lt;stop style="stop-color:#FFF096" offset="0%"/&gt;
+			&lt;stop style="stop-color:#FAD954" offset="50%"/&gt;
+			&lt;stop style="stop-color:#F4BE03" offset="100%"/&gt;
+		&lt;/linearGradient&gt;
+
+		&lt;path d="M0,0L675,0L690,30L675,60L0,60Z" style="fill:url(#lineGradient);"/&gt;
+		</code></pre>
+		<h3>Подключение стилей</h3>
+		Применяются очень похожие на CSS стили, например:
+		<pre><code>
+		&lt;![CDATA[
+		.selected{
+			fill: #e33;
+		}
+		]]&gt;
+		</code></pre>
 	</div>
 </body>
 

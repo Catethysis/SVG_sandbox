@@ -1,0 +1,131 @@
+<html>
+
+<head>
+	<title>Учебник SVG</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="Highlight/styles/default.css">
+	<script src="Highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<link rel="stylesheet" href="styles/style.css"/>
+	<style>
+		h2 {margin-top: 20px;}
+
+		h3 {margin-top: 20px;}
+
+		.sandbox {border: 1px solid #000;}
+
+		.wrap {
+			width: 1020px;
+			border: 1px solid #ddd;
+			margin: 0 auto;
+		}
+	</style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		jQuery(window).load(function () {
+			$(".menu_intact").click(function () {
+				document.location.href="line.htm";
+			});
+			$(".menu_examples").click(function () {
+				document.location.href="examples.htm";
+			});
+			$(".menu_elements").click(function () {
+				document.location.href="index.htm";
+			});
+			$(".menu_designs").click(function () {
+				document.location.href="designs.htm";
+			});
+			$(".menu_tricks").click(function () {
+				document.location.href="tricks.htm";
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- Меню -->
+		<svg width="1020" height="45">
+			<style type="text/css" media="screen">
+				<![CDATA[
+				.unsel{
+					fill: #666;
+				}
+
+				.sel{
+					fill: #d40;
+				}
+
+				.back{
+					fill: #ccc;
+				}
+
+				.bott{
+					fill: #bbb;
+				}
+
+				.font_s{
+					fill: #ddd;
+					font-family: sans-serif;
+					font-weight: 600;
+				}
+				]]>
+			</style>
+
+			<path class="back" d="M0,0 L1020,0 L1020,40 L0,40 Z"/>
+			<path class="bott" d="M0,40 L1020,40 L1020,45 L0,45 Z"/>
+
+			<g transform="translate(0,0)" class="menu_elements">
+				<!-- <path class="sel" id="1" d="M0,0L175,0L185,20L175,40L0,40Z"/> -->
+				<path class="unsel" id="1" d="M0,0L185,0L165,40L0,40Z"/>
+				<text x="45" y="25" class="font_s">Элементы</text>
+			</g>
+
+			<g transform="translate(170,0)" class="menu_examples">
+				<path class="unsel" id="2" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Примеры</text>
+			</g>
+
+			<g transform="translate(340,0)" class="menu_intact">
+				<path class="unsel" id="3" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="25" y="25" class="font_s">Интерактивность</text>
+			</g>
+
+			<g transform="translate(510,0)" class="menu_designs">
+				<path class="unsel" id="4" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Дизайны</text>
+			</g>
+
+			<g transform="translate(680,0)" class="menu_redactor">
+				<path class="unsel" id="5" d="M20,0L185,0L165,40L0,40Z"/>
+				<text x="55" y="25" class="font_s">Редактор</text>
+			</g>
+
+			<g transform="translate(850,0)" class="menu_tricks">
+				<path class="sel" id="5" d="M20,0L170,0L170,40L0,40Z"/>
+				<text x="65" y="25" class="font_s">Трюки</text>
+			</g>
+
+		</svg>
+		<!-- /Меню -->
+		<h2>Минификация</h2>
+		В файлах SVG, особенно больших, появляется много лишнего кода. Это могут быть лишние id, невидимые объекты, множество деклараций/доктайпов, комментарии. Лучше всего с чисткой такого кода справляется минификатор SVGO.
+
+		<h3>Сжатие</h3>
+		SVG &mdash; текстовый формат, к тому же ещё и XML. Значит, его можно сильно сжать архиватором, и логично применить gzip.
+
+		<h3>Профит</h3>
+		После минимизации и сжатия можно добиться 15-кратного уменьшения размера (например, с 36 до 2 кБ). Если вы делаете большую карту или что-то подобное объёмное - это добро. Итоговый размер выйдет в сотни раз меньше, чем gif. И не забываем, что это векторный формат, а значит остаётся возможность трансформации объектов, или например, перекраски. Это удобно если вы захотите перекрашивать карту для разных пользователей. И можно приделать анимацию и интерактивность (не через активные div-ы). Ещё и текст остаётся доступным для поисковиков.<br>С другой стороны, рисовать огромную карту вроде Викимапии нельзя, потому что даже для отображения небольшого кусочка карты придётся загружать и отображать весь файл. Отчасти это решается тайлингом.
+
+		<h2>Интеграция в документ</h2>
+		Самый простой способ - вставить SVG инлайн. Более того, это самый удобный способ, потому что все объекты SVG будут автоматически вставлены в DOM.<br>
+		Однако SVG-файлы могут иметь большие размеры, и тогда остаётся два пути - система сборки, либо подключение SVG из внешнего файла. Делается это так:
+		<pre><code>
+			&lt;object data="file.svg" type="image/svg+xml" width="1000" height="1000"&gt;&lt;/object&gt;
+		</pre></code>
+	</div>
+</body>
+
+</html>
