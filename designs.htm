@@ -30,6 +30,13 @@
 			border: 1px solid #ddd;
 			margin: 0 auto;
 		}
+
+		#back,#controls { position: relative; top: 10px; left: 10px; }
+
+		#back { z-index: 0; }
+		#controls { z-index: 1; top: -55px; left: 15px; }
+
+		input { width: 600px; }
 	</style>
 </head>	
 
@@ -102,7 +109,7 @@
 		
 		<h3>Поиск Яндекса</h3>
 
-		<svg width="700" height="70">
+		<svg width="700" height="70" id="back">
 
 			<linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
 				<stop style="stop-color:#FFF096" offset="0%"/>
@@ -112,5 +119,9 @@
 
 			<path d="M0,0L675,0L690,30L675,60L0,60Z" style="fill:url(#lineGradient);"/>
 		</svg>
+
+		<div id="controls">
+			<input>
+		</div>
 	</div>
 </body>
