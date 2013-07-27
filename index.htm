@@ -119,7 +119,7 @@
 		<h3>Элемент line</h3>
 		Самый простой элемент в SVG. Он имеет такой синтаксис:
 		<pre><code>
-			&lt;line x1=&quot;50&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;30&quot;/&gt;
+&lt;line x1=&quot;50&quot; y1=&quot;100&quot; x2=&quot;200&quot; y2=&quot;30&quot;/&gt;
 		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<line x1="50" y1="100" x2="200" y2="30" stroke="#000"/>
@@ -128,7 +128,7 @@
 		<h3>Элемент rect</h3>
 		Предназначен для рисования прямоугольников.
 		<pre><code>
-			&lt;circle x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
+&lt;circle x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
 		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<rect x="50" y="30" width="150" height="70" stroke="#000" fill="#fff"/>
@@ -137,7 +137,7 @@
 		<h3>Элемент circle</h3>
 		Предназначен для рисования окружностей.
 		<pre><code>
-			&lt;circle cx=&quot;130&quot; cy=&quot;130&quot; r=&quot;50&quot;/&gt;
+&lt;circle cx=&quot;130&quot; cy=&quot;130&quot; r=&quot;50&quot;/&gt;
 		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<circle cx="130" cy="70" r="50" stroke="#000" fill="#fff"/>
@@ -146,33 +146,195 @@
 		<h3>Элемент text</h3>
 		Предназначен для вывода текста.
 		<pre><code>
-			&lt;text x=&quot;50&quot; y=&quot;70&quot;/&gt;Текст&lt;/&gt;
+&lt;text x=&quot;50&quot; y=&quot;70&quot;/&gt;Текст&lt;/&gt;
 		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<text x="50" y="70">Текст</text>
 		</svg>
+
+		<h3>Элемент g</h3>
+		Любые элементы в SVG можно объединять в группы, и после этого применять к группе трансформацию или назначать стиль.
+		<pre><code>
+&lt;text x=&quot;50&quot; y=&quot;70&quot;/&gt;Текст&lt;/&gt;
+		</code></pre>
+		<svg width="250" height="150" class="sandbox">
+			<text x="50" y="70">Текст</text>
+		</svg>
+
+		<h2>Преобразования</h2>
+
+		<h3>Transform</h3>
+		Есть несколько вариантов - translate, rotate, scale. Все трансформации производятся из точки (0,0) объекта.<br>
+		<pre><code>
+&lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(100,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(200,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;rect transform="translate(400,70)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/&gt;
+&lt;rect transform="translate(500,70) rotate(20)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(100,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(200,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<rect transform="translate(400,70)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
+			<rect transform="translate(500,70) rotate(20)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
+		</svg><br><br>
+
+		Применим преобразования к группам:<br>
+		<pre><code>
+&lt;g transform="translate(40,20)"&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
+	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+&lt;/g&gt;
+&lt;g transform="translate(90,20)"&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
+	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+&lt;/g&gt;
+&lt;g transform="translate(140,20)"&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
+	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+&lt;/g&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<g transform="translate(40,20)">
+				<line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/>
+				<circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/>			
+				<circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/>
+			</g>
+			<g transform="translate(90,20)">
+				<line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/>
+				<circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/>			
+				<circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/>
+			</g>
+			<g transform="translate(140,20)">
+				<line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/>
+				<circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/>			
+				<circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/>
+			</g>
+		</svg><br><br>
+
+		Важное замечание: scale масштабирует вообще все параметры объекта - размеры, положение и толщину границы.<br>
+		<pre><code>
+&lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(100,0), scale(1.5)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(200,0), scale(2)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(100,0), scale(1.5)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(200,0), scale(2)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+		</svg><br><br>
+
+		Чтобы избежать изменения положения - рисуем объект с центром в (0,0), масштабируем и переносим в нужную точку.<br>
+		<pre><code>
+&lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(170,70), scale(1.5)" cx="0" cy="0" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(270,70), scale(2)" cx="0" cy="0" r="30" stroke="#000" fill="#fff"/&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(170,70), scale(1.5)" cx="0" cy="0" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(270,70), scale(2)" cx="0" cy="0" r="30" stroke="#000" fill="#fff"/>
+		</svg><br><br>
+
+		Это даёт возможность легко размножить объекты вокруг некой точки, аналог процедуры array во многих векторных редакторах.
+		Нужно нарисовать объект с нулём координат в будущем центре вращения, и сделать несколько его копий с разным значением rotate:<br>
+		<pre><code>
+&lt;g transform="translate(100, 80)"&gt;
+	&lt;text transform="rotate(0)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(30)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(60)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(90)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(120)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(150)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(180)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(210)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(240)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(270)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(300)" x="30" y="3"&gt;Текст&lt;/text&gt;
+	&lt;text transform="rotate(330)" x="30" y="3"&gt;Текст&lt;/text&gt;
+&lt;/g&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<g transform="translate(100, 80)">
+				<text transform="rotate(0)" x="30" y="3">Текст</text>
+				<text transform="rotate(30)" x="30" y="3">Текст</text>
+				<text transform="rotate(60)" x="30" y="3">Текст</text>
+				<text transform="rotate(90)" x="30" y="3">Текст</text>
+				<text transform="rotate(120)" x="30" y="3">Текст</text>
+				<text transform="rotate(150)" x="30" y="3">Текст</text>
+				<text transform="rotate(180)" x="30" y="3">Текст</text>
+				<text transform="rotate(210)" x="30" y="3">Текст</text>
+				<text transform="rotate(240)" x="30" y="3">Текст</text>
+				<text transform="rotate(270)" x="30" y="3">Текст</text>
+				<text transform="rotate(300)" x="30" y="3">Текст</text>
+				<text transform="rotate(330)" x="30" y="3">Текст</text>
+			</g>
+		</svg><br><br>
+
+
+
+		Порядок преобразований тоже важен.<br>
+		<pre><code>
+&lt;circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(100,0), scale(1.5)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(200,0), scale(2)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(100,0), scale(1.5)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(200,0), scale(2)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+		</svg><br>
+		<pre><code>
+&lt;circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="scale(1.5), translate(100,0)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="scale(2), translate(200,0)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="scale(1.5), translate(100,0)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="scale(2), translate(200,0)" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
+		</svg><br>
 
 		<h2>Представление</h2>
 		<h3>Стили</h3>
 		Атрибуты: fill (цвет заливки), stroke (цвет границы), stroke-width (ширина границы).
 		Атрибутам fill и stroke можно задавать градиент, например:
 		<pre><code>
-		&lt;linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1"&gt;
-			&lt;stop style="stop-color:#FFF096" offset="0%"/&gt;
-			&lt;stop style="stop-color:#FAD954" offset="50%"/&gt;
-			&lt;stop style="stop-color:#F4BE03" offset="100%"/&gt;
-		&lt;/linearGradient&gt;
+&lt;linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1"&gt;
+	&lt;stop style="stop-color:#FFF096" offset="0%"/&gt;
+	&lt;stop style="stop-color:#FAD954" offset="50%"/&gt;
+	&lt;stop style="stop-color:#F4BE03" offset="100%"/&gt;
+&lt;/linearGradient&gt;
 
-		&lt;path d="M0,0L675,0L690,30L675,60L0,60Z" style="fill:url(#lineGradient);"/&gt;
+&lt;path d="M0,0L675,0L690,30L675,60L0,60Z" style="fill:url(#lineGradient);"/&gt;
 		</code></pre>
+		<svg width="650" height="150" class="sandbox">
+			<linearGradient id="lineGradient_fill" x1="0" y1="0" x2="0" y2="1">
+				<stop style="stop-color:#FFF096" offset="0%"/>
+				<stop style="stop-color:#FAD954" offset="50%"/>
+				<stop style="stop-color:#F4BE03" offset="100%"/>
+			</linearGradient>
+
+			<linearGradient id="lineGradient_stroke" x1="0" y1="0" x2="0" y2="1">
+				<stop style="stop-color:#F4BE03" offset="0%"/>
+				<stop style="stop-color:#FAD954" offset="50%"/>
+				<stop style="stop-color:#FFF096" offset="100%"/>
+			</linearGradient>
+
+			<path transform="translate(40,20)" d="M0,0L300,0L300,60L0,60Z" style="stroke:url(#lineGradient_stroke); fill:url(#lineGradient_fill); stroke-width: 20px;"/>
+		</svg>
 		<h3>Подключение стилей</h3>
 		Применяются очень похожие на CSS стили, например:
 		<pre><code>
-		&lt;![CDATA[
-		.selected{
-			fill: #e33;
-		}
-		]]&gt;
+&lt;![CDATA[
+.selected {
+	fill: #e33;
+}
+]]&gt;
 		</code></pre>
 	</div>
 </body>
