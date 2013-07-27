@@ -115,6 +115,7 @@
 		<h2>Общие свойства</h2>
 		Все элементы SVG имеют свойства fill, stroke, stroke-width, font и так далее. Но их лучше задавать в виде стилей. Все линии необходимо "обвести" после рисования свойством stroke.
 		<h2>Линейные элементы</h2>
+
 		<h3>Элемент line</h3>
 		Самый простой элемент в SVG. Он имеет такой синтаксис:
 		<pre><code>
@@ -123,13 +124,32 @@
 		<svg width="250" height="150" class="sandbox">
 			<line x1="50" y1="100" x2="200" y2="30" stroke="#000"/>
 		</svg>
+
 		<h3>Элемент rect</h3>
 		Предназначен для рисования прямоугольников.
 		<pre><code>
-			&lt;rect x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
+			&lt;circle x=&quot;50&quot; y=&quot;30&quot; width=&quot;150&quot; height=&quot;70&quot;/&gt;
 		</code></pre>
 		<svg width="250" height="150" class="sandbox">
 			<rect x="50" y="30" width="150" height="70" stroke="#000" fill="#fff"/>
+		</svg>
+
+		<h3>Элемент circle</h3>
+		Предназначен для рисования окружностей.
+		<pre><code>
+			&lt;circle cx=&quot;130&quot; cy=&quot;130&quot; r=&quot;50&quot;/&gt;
+		</code></pre>
+		<svg width="250" height="150" class="sandbox">
+			<circle cx="130" cy="70" r="50" stroke="#000" fill="#fff"/>
+		</svg>
+
+		<h3>Элемент text</h3>
+		Предназначен для вывода текста.
+		<pre><code>
+			&lt;text x=&quot;50&quot; y=&quot;70&quot;/&gt;Текст&lt;/&gt;
+		</code></pre>
+		<svg width="250" height="150" class="sandbox">
+			<text x="50" y="70">Текст</text>
 		</svg>
 
 		<h2>Представление</h2>
