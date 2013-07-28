@@ -171,36 +171,38 @@
 		<h3>Transform</h3>
 		Есть несколько вариантов - translate, rotate, scale. Все трансформации производятся из точки (0,0) объекта.
 		<pre><code>
-&lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle <span class="focus">transform="translate(100,0)"</span> cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle <span class="focus">transform="translate(200,0)"</span> cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;rect <span class="focus">transform="translate(400,70)"</span> x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/&gt;
-&lt;rect <span class="focus">transform="translate(500,70) rotate(20)"</span> x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/&gt;
+&lt;circle cx="70" cy="75" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle <span class="focus">transform="translate(100,0)"</span> cx="70" cy="75" r="30"/&gt;
+&lt;circle <span class="focus">transform="translate(200,0)"</span> cx="70" cy="75" r="30"/&gt;
+&lt;rect <span class="focus">transform="translate(400,75)"</span> x="-30" y="-30" width="60" height="60"/&gt;
+&lt;rect <span class="focus">transform="translate(500,75) rotate(20)"</span> x="-30" y="-30" width="60" height="60"/&gt;
+&lt;rect <span class="focus">transform="translate(580,75) rotate(40) scale(1.5)"</span> x="-30" y="-30" width="60" height="60"/&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
-			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
-			<circle transform="translate(100,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
-			<circle transform="translate(200,0)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
-			<rect transform="translate(400,70)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
-			<rect transform="translate(500,70) rotate(20)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
+			<circle cx="70" cy="75" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(90,0)" cx="70" cy="75" r="30" stroke="#000" fill="#fff"/>
+			<circle transform="translate(180,0)" cx="70" cy="75" r="30" stroke="#000" fill="#fff"/>
+			<rect transform="translate(350,75)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
+			<rect transform="translate(450,75) rotate(20)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
+			<rect transform="translate(580,75) rotate(40) scale(1.5)" x="-30" y="-30" width="60" height="60" stroke="#000" fill="#fff"/>
 		</svg><br><br>
 
 		Применим преобразования к группам:
 		<pre><code>
 &lt;g transform="<span class="focus">translate(40,20)</span>"&gt;
-	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
-	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
-	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10"/&gt;			
+	&lt;circle cx="10" cy="60" r="10"/&gt;
 &lt;/g&gt;
 &lt;g transform="<span class="focus">translate(90,20)</span>"&gt;
-	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
-	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
-	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10"/&gt;			
+	&lt;circle cx="10" cy="60" r="10"/&gt;
 &lt;/g&gt;
 &lt;g transform="<span class="focus">translate(140,20)</span>"&gt;
-	&lt;line x1="10" y1="20" x2="10" y2="60" stroke="#000" stroke-width="2"/&gt;
-	&lt;circle cx="10" cy="20" r="10" stroke="#000" fill="#fff"/&gt;			
-	&lt;circle cx="10" cy="60" r="10" stroke="#000" fill="#fff"/&gt;
+	&lt;line x1="10" y1="20" x2="10" y2="60" stroke-width="2"/&gt;
+	&lt;circle cx="10" cy="20" r="10"/&gt;			
+	&lt;circle cx="10" cy="60" r="10"/&gt;
 &lt;/g&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
@@ -224,8 +226,8 @@
 		Важное замечание: scale масштабирует вообще все параметры объекта - размеры, положение и толщину границы.
 		<pre><code>
 &lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="translate(100,0), scale(1.5)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="translate(200,0), scale(2)" cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(100,0), scale(1.5)" cx="70" cy="70" r="30"/&gt;
+&lt;circle transform="translate(200,0), scale(2)" cx="70" cy="70" r="30"/&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
 			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
@@ -236,8 +238,8 @@
 		Чтобы избежать изменения положения - рисуем объект с центром в (0,0), масштабируем и переносим в нужную точку.
 		<pre><code>
 &lt;circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="translate(170,70), scale(1.5)" <span class="focus">cx="0" cy="0"</span> r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="translate(270,70), scale(2)" <span class="focus">cx="0" cy="0"</span> r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="translate(170,70), scale(1.5)" <span class="focus">cx="0" cy="0"</span> r="30"/&gt;
+&lt;circle transform="translate(270,70), scale(2)" <span class="focus">cx="0" cy="0"</span> r="30"/&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
 			<circle cx="70" cy="70" r="30" stroke="#000" fill="#fff"/>
@@ -285,8 +287,8 @@
 		Порядок преобразований тоже важен, они выполняются слева направо.
 		<pre><code>
 &lt;circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="<span class="focus">translate(100,0), scale(1.5)</span>" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="<span class="focus">translate(200,0), scale(2)</span>" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="<span class="focus">translate(100,0), scale(1.5)</span>" cx="40" cy="40" r="30"/&gt;
+&lt;circle transform="<span class="focus">translate(200,0), scale(2)</span>" cx="40" cy="40" r="30"/&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
 			<circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
@@ -295,8 +297,8 @@
 		</svg>
 		<pre><code>
 &lt;circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="<span class="focus">scale(1.5), translate(100,0)</span>" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
-&lt;circle transform="<span class="focus">scale(2), translate(200,0)</span>" cx="40" cy="40" r="30" stroke="#000" fill="#fff"/&gt;
+&lt;circle transform="<span class="focus">scale(1.5), translate(100,0)</span>" cx="40" cy="40" r="30"/&gt;
+&lt;circle transform="<span class="focus">scale(2), translate(200,0)</span>" cx="40" cy="40" r="30"/&gt;
 		</code></pre>
 		<svg width="650" height="150" class="sandbox">
 			<circle cx="40" cy="40" r="30" stroke="#000" fill="#fff"/>
